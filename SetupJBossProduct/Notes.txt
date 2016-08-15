@@ -1,0 +1,14 @@
+
+# You can tar up a product installation, then copy it (in a dockerfile) to an image.  Later, you can 'run -i -t' to get a command prompt in the container, you can start the server there.
+
+Example:
+
+FROM java:7
+RUN mkdir -p opt/jboss/FSW
+COPY  FSW_RU5.tar.gz /opt/jboss/FSW/FSW_RU5.tar.gz
+RUN chmod 777 /opt/jboss/FSW
+RUN chmod 777 /opt/jboss/FSW/FSW_RU5.tar.gz
+RUN gunzip /opt/jboss/FSW/FSW_RU5.tar.gz
+
+
+# Now you can 'docker cp' your applications from the docker host to the /standalone/deployments directory for quick deploy.  You can also 'docker cp' docker's FSW log to your host for viewing.

@@ -1,0 +1,10 @@
+
+# You can run docker with 'run -i -t' to start out on a box running an app server like FSW.  You can hot-deploy applications to it by 
+# copying your applications from your host to the deployments directory.
+# You'll see the application deploy in the docker terminal window, but you can also copy the application log back to your docker host.
+
+# Copy application to the docker FSW:             docker cp someApp.jar <DockerPid>:/opt/jboss/FSW/jboss-eap-6.1/standalone/deployments
+# docker cp MyApplication.war f5f95e144dde:/opt/jboss/FSW/jboss-eap-6.1/standalone/deployments
+#
+# Copy log from FSW to my box:                    docker cp <DockerPid>:/opt/jboss/FSW/jboss-eap-6.1/standalone/log/server.log LogFromDocker.txt
+# docker cp f5f95e144dde:/opt/jboss/FSW/jboss-eap-6.1/standalone/log/server.log LogFromDocker.txt
