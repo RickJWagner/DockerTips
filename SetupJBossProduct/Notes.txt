@@ -12,3 +12,10 @@ RUN gunzip /opt/jboss/FSW/FSW_RU5.tar.gz
 
 
 # Now you can 'docker cp' your applications from the docker host to the /standalone/deployments directory for quick deploy.  You can also 'docker cp' docker's FSW log to your host for viewing.
+
+
+Start your container, with ports exposed:
+docker run -it -p 8080:8080 -p 9990:9990 fsw_ru5 /bin/bash
+
+Before starting the product, use add-user.sh to get a console user.  Then remember to bind to all interfaces:
+./standalone.sh -b 0.0.0.0 -bmanagement 0.0.0.0
